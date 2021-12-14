@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="zxx">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name = "viewport" content = "width=device-width, minimum-scale=1.0, maximum-scale = 1.0, user-scalable = no">
+    <title>The Wicked Monarch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="//fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Quicksand:wght@300;400;600&family=Sorts+Mill+Goudy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="assets/css/stakingstyles.css">
+
+    <link rel="stylesheet" href="assets/css/masterstyles.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+</head>
+
+<body>
+  <script>
+    const contract = "arbitratenet";
+    const symbol = "RBIT";
+  </script>
+
+  <!--header-->
+  <header id="site-header" class="fixed-top" style="padding: 15px;">
+    <!-- //top header -->
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg stroke px-0 py-lg-0">
+        
+        <a class="navbar-brand" href="#index.html">
+            <img src="assets/images/logo.png" alt="Your logo" title="Your logo" style="height:42px;" />
+        </a>
+
+        <button class="navbar-toggler  collapsed bg-gradient" type="button" data-toggle="collapse"
+          data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon fa icon-expand fa-bars"></span>
+          <span class="navbar-toggler-icon fa icon-close fa-times"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mx-lg-auto search-right">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="blog.html">Blog </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="nfts.html">NFT's Collection</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pps.html">Premium Pack Sale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About Us</a>
+            </li>
+            <!--/search-right-->
+            <li class="nav-item search-right ml-lg-3">
+                <!-- /header-top-inn-->
+                <div class="menu-overlay-left">
+                    <div class="two-pops">
+                    </div>
+                </div>
+                <!-- overlay-menuv-menu -->
+            </li>
+            <!--//search-right-->
+          </ul>
+          <!--/right-btn-->
+          <div class="top-righthny-buttton">
+            <a class="btn btn-style btn-accent" href="stakingarea.html">Stake 2 Earn</a>
+            <a class="btn btn-style btn-hollow" href="pvpbattle.html">Play 2 Earn</a>
+          </div>
+          <!--/right-btn-->
+        </div>
+        <!-- toggle switch for light and dark theme -->
+        <div class="mobile-position">
+          <nav class="navigation">
+          </nav>
+        </div>
+        <!-- //toggle switch for light and dark theme -->
+      </nav>
+    </div>
+  </header>
+  <!--/header-->
+
+  <!--/breadcrumb-bg-->
+  <div class="breadcrumb-bg py-5">
+    <div class="container pt-lg-5 ">
+      <!-- <ul class="breadcrumbs-custom-path pt-5 text-center">
+        <li><a href="index.html">Home</a></li>
+        <li class="active"><span class="fa fa-arrow-right mx-2" aria-hidden="true"></span> Staking Dashboard </li>
+      </ul> -->
+    </div>
+  </div>
+  <!--//breadcrumb-bg-->
+  <div id="toast" style="visibility: hidden"></div>
+
+  <div class="dashboard-area">
+
+    <div class="container">
+      <div id="loader" style="display: none;">
+        <p class="loadingText">Loading ...</p>
+        <div class="lds-circle"><div></div></div>
+      </div>
+      <div id="lvlloader" style="display: none;">
+          <img id="lvlimg"  src="https://media4.giphy.com/media/St3iie3VZ65VHkobqc/giphy.gif?cid=ecf05e47r7wicv168mlzdsa4bzdvh8jtxpzpodg5g5a69q5j&rid=giphy.gif&ct=g">
+          <p class="loadingText">Loading ...</p>
+          <div class="lds-circle"><div></div></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <!-- <div class="nav-container">
+            <a href="#" style = "color: #989898;">
+              <li><span class="fa fa-arrow-left mx-2" aria-hidden="true"></span>Back / </li>
+            </a>
+            <a href="#" style = "font-weight: 600; margin-left: 4px; color: #eee;">
+              Staking Dashboard
+            </a>
+          </div> -->
+          <ul>
+            <li>
+                <div id="blc" class="blc" style="display: none;">
+                    <input class="img" src="./assets/Token.png" type="image"><br>
+                    <p id="balance" class="balance">0.0000 RARc</p>
+                </div>
+            </li>
+            <li>
+                <input class="actionButton" id="claim" style="display: none;" src="./assets/Claim.png" onclick="claimbalance()" type="image">
+            </li>
+            <li>
+                <input class="actionButton" id="loggedout" src="./assets/Login.png" onclick="WalletListVisible(!0)" type="image">
+                <!-- If you want to implement the same functionality using Modal, please uncomment below code -->
+                <!-- <input class="actionButton" id="loggedout" src="./assets/Login.png" onclick="WalletListVisible(!0)" type="image"  data-toggle="modal" data-target="#walletModal"> -->
+                <input class="actionButton" id="loggedin" src="./assets/Logout.png" onclick="logout()" style="display: none;" type="image">
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6 col-md-6 col-sm-12">
+          <div class="facts-card">
+            <li>Time to reward: <span id ="timetor" class="value">00:00</span></li>
+            <li>My cards staked: <span id="stakedcount" class="value">0</span></li>
+            <li>My Stake Power: <span id="stakepwr" class="value">0 PER HOUR</span></li>
+            <li>Collected Rewards: <span id="unclaimed" class="value">0.0</span></li>
+          </div>
+        </div>
+      </div>
+
+      <div class="staking-area">
+
+        <!-- markup area to display all action buttons -->
+        <div id="staking">
+          <input class="stakeAllbtn actionButton" id = "stkall"src="./assets/StakeAll.png" onclick="stakeall()" type="image">
+          <input class="stakeAllbtn actionButton" src="./assets/wallet.png" onclick="switchstaked(false)" type="image">
+          <input class="stakeAllbtn actionButton" src="./assets/inv.png" onclick="switchstaked(true)" type="image">
+          <input class="actionButton" id="claim" src="./assets/Claim.png" onclick="claimbalance()" type="image">
+        </div>
+
+        <!-- separator area to separate NFT cards from action area -->
+        <div class="area-header">
+          <h4>All Cards</h4>
+          <div class="actions">
+            <button class="clean-button active">Unstaked</button>
+            <button class="clean-button">Staked</button>
+          </div>
+        </div>
+
+        <!-- here all cards will display -->
+        <div class="maindiv" id="maindiv"></div>
+      </div>
+
+      <!-- // Modal for Login Options -->
+      <div class="modal fade" id="walletModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Connect to Wallets</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <button type="button" style="width: 100%; background: #000; color: #eee;" class="btn btn-large btn-flex" data-dismiss="modal"> <img src="assets/images/waxlogo.png" alt=""> <a href="https://all-access.wax.io/">Wax Cloud Wallet</a> <span class="fa fa-arrow-right mx-2" aria-hidden="true"></span></button><br>
+              <button type="button" style="width: 100%; background: #4267B2; color: #eee;" class="btn btn-large btn-flex"> <img src="assets/images/anchorlogo.png" style="height: 28px;" alt=""> <a href="https://greymass.com/en/anchor/">Anchor</a> <span class="fa fa-arrow-right mx-2" aria-hidden="true"></span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal for Login Options // -->
+
+      <div class="content_wrapper">
+        <div id="walletlist" style="visibility: hidden">
+          <button class="close" style="color: #000; margin: 0.5em 0.6em;" onclick="WalletListVisible(!1)"><span aria-hidden="true">&times;</span></button>
+          <div style="margin: 10px 0px; font-size: 26px;"><h3 style="color: #314780;">To continue please</h3><p style="color: #555;">select an option</p></div>
+          <input class="anchor" id="anchor" src="./assets/anchor.png" onclick='selectWallet("anchor")' type="image"><br>
+          <input class="wcw" id="wcw" src="./assets/wcw.png" onclick='selectWallet("cloud")' type="image">
+        </div>
+        <div id="message" style="visibility: hidden">
+          <div><button class="close" onclick="HideMessage()"><span aria-hidden="true">&times;</span></button></div>
+          <div id="messagecontent"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- footer -->
+  <section class="w3l-footer-29-main">
+    <div class="footer-29 py-5">
+      <div class="container py-lg-3">
+        <div class="row footer-top-29">
+          <div class="col-lg-4 footer-list-29 footer-2 mt-lg-0 mt-md-5 mt-4 pr-lg-5">
+            <div class="footer-logo mb-3">
+              <h2><a class="navbar-brand" href="index.html">
+                  <img src="assets/images/logo.png" style="width: 280px;" alt="">
+                </a>
+              </h2>
+            </div>
+          </div>
+          <div class="col-lg-8 footerw3l-right pl-lg-5">
+            <div class="row no-gutters">
+              <div class="col-lg-8 col-md-8 col-sm-12 footer-list-29 footer-2 mt-lg-0 mt-md-5 mt-4">
+                <h6 class="footer-title-29">Quick Links</h6>
+                <ul>
+                  <li><a href="privacy.html">Privacy policy</a></li>
+                  <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-4 col-md-4 col-sm-12 footer-list-29 footer-2 mt-lg-0 mt-md-5 mt-4">
+                <h6 class="footer-title-29">Find us on social media</h6>
+                <div class="main-social-footer-29 mt-2">
+                  <a href="https://discord.gg/JCyRVX6Y" target="_blank" class="discord"><span class="fa fab fa-discord"></span></a>
+                  <a href="https://twitter.com/thewmonarch" target="_blank" class="twitter"><span class="fa fa-twitter"></span></a>
+                  <a href="mailto:twmonarch5001@gmail.com" class="email"><span class="fa fa-envelope"></span></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- //footer -->
+
+  <!-- <a href="#" class="btn btn-accent btn-style mt-3 translatebtn">Translate</a> -->
+
+  <!-- copyright -->
+  <section class="w3l-copyright">
+    <div class="container">
+      <div class="bottom-copies text-center">
+        <p class=" copy-footer-29">© 2021 TWM - The Lord of NFTs, Worldwide Gaming Platform.™ All rights reserved.</p>
+      </div>
+    </div>
+
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" title="Go to top">
+      &#10548;
+    </button>
+    <script>
+      // When the user scrolls down 20px from the top of the document, show the button
+      window.onscroll = function () {
+        scrollFunction()
+      };
+
+      function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          document.getElementById("movetop").style.display = "block";
+        } else {
+          document.getElementById("movetop").style.display = "none";
+        }
+      }
+
+      // When the user clicks on the button, scroll to the top of the document
+      function topFunction() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
+    </script>
+    <!-- /move top -->
+  </section>
+  <!-- //copyright -->
+
+  <!-- Template JavaScript -->
+  <script src="assets/js/jquery-3.3.1.min.js"></script>
+  <script src="assets/js/theme-change.js"></script>
+
+
+  <!-- stats number counter-->
+  <script src="assets/js/jquery.waypoints.min.js"></script>
+  <script src="assets/js/jquery.countup.js"></script>
+
+  <script>
+    $('.counter').countUp();
+  </script>
+  <!-- //stats number counter -->
+
+  <!-- disable body scroll which navbar is in active -->
+  <script>
+    $(function () {
+      $('.navbar-toggler').click(function () {
+        $('body').toggleClass('noscroll');
+      })
+    });
+  </script>
+  <!-- disable body scroll which navbar is in active -->
+
+  <!--/MENU-JS-->
+  <script>
+    $(window).on("scroll", function () {
+      var scroll = $(window).scrollTop();
+
+      if (scroll >= 80) {
+        $("#site-header").addClass("nav-fixed");
+      } else {
+        $("#site-header").removeClass("nav-fixed");
+      }
+    });
+
+    //Main navigation Active Class Add Remove
+    $(".navbar-toggler").on("click", function () {
+      $("header").toggleClass("active");
+    });
+    $(document).on("ready", function () {
+      if ($(window).width() > 991) {
+        $("header").removeClass("active");
+      }
+      $(window).on("resize", function () {
+        if ($(window).width() > 991) {
+          $("header").removeClass("active");
+        }
+      });
+    });
+  </script>
+    <script src="assets/js/waxjs.js"></script>
+    <script src="https://unpkg.com/anchor-link@3"></script>
+    <script src="https://unpkg.com/anchor-link-browser-transport@3"></script>
+    <script src="assets/js/main.js"></script>
+  <!--//MENU-JS-->
+  <script src="assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
